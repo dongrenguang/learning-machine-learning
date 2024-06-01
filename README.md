@@ -1,2 +1,2 @@
 # learning-machine-learning
-ML自学
+ML学习
