@@ -1,3 +1,4 @@
+# p73
 class WideDeepModel(keras_training.Model):
     def call(self, inputs, training=None):
         linear_inputs, dnn_inputs = inputs
