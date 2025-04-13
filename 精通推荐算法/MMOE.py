@@ -38,7 +38,7 @@ def build_mmoe(user_field_size, item_field_size, num_user_features, num_item_fea
         # 先利用Embedding特征向量计算每个专家网络的权重
         gate_weight = Dense(num_experts, activation="softmax", name=f"gate_output_{i}")(all_emb) # [batch_size, num_experts, 1]
         # 再对所有专家网络加权求和得到融合后的输出
-        gate_output = tf.multiply(expert_outputs, gate_weight)
+        gate_output = tf.matmul(expert_outputs, gate_weight, transpose_b=True)
         gate_outputs.append(gate_output)
 
     # 6. 定义塔网络，采用两个全连接层，每个子任务都拥有一个独立的塔网络
