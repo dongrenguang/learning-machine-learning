@@ -1,11 +1,11 @@
 # p78
 class Cross(tf.keras.layers.Layer):
-    def __init__(self, ......):
+    def __init__(self, projection_dim, diag_scale, use_bias, **kwargs):
         super(Cross, self).__init__(**kwargs)
         self._projection_dim = projection_dim # 矩阵分解时采用的中间维度
         self._diag_scale = diag_scale # 非负小数，用于改善训练稳定性
         self._use_bias = use_bias
-        ......
+        # ......
 
     def build(self, input_shape): # 定义本层要优化的参数
         last_dim = input_shape[-1] # 输入的维度
